@@ -4,15 +4,7 @@
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "secretOptions": null,
-        "options": {
-          "awslogs-group": "/ecs/smapleTaskFargate",
-          "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "ecs"
-        }
-      },
+      "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [
         {
@@ -33,7 +25,7 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": null,
+      "memoryReservation": 256,
       "volumesFrom": [],
       "stopTimeout": null,
       "image": "207236964171.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-app:latest",
@@ -53,30 +45,23 @@
       "dockerLabels": null,
       "systemControls": null,
       "privileged": null,
-      "name": "sample-nodejs-app-test"
+      "name": "sample-nodejs-app"
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": "256",
   "taskRoleArn": "arn:aws:iam::207236964171:role/ecsTaskExecutionRole",
   "compatibilities": [
-    "EC2",
-    "FARGATE"
+    "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:207236964171:task-definition/smapleTaskFargate:1",
-  "family": "smapleTaskFargate",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:207236964171:task-definition/firstECSTask:3",
+  "family": "firstECSTask",
   "requiresAttributes": [
     {
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-awslogs"
+      "name": "com.amazonaws.ecs.capability.task-iam-role-network-host"
     },
     {
       "targetId": null,
@@ -88,7 +73,7 @@
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
     },
     {
       "targetId": null,
@@ -107,21 +92,15 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.task-eni"
     }
   ],
   "pidMode": null,
   "requiresCompatibilities": [
-    "FARGATE"
+    "EC2"
   ],
-  "networkMode": "awsvpc",
+  "networkMode": "host",
   "cpu": "256",
-  "revision": 1,
+  "revision": 3,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
