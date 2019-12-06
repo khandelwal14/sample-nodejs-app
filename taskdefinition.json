@@ -22,7 +22,7 @@
       }
    ],
    "cpu": "256",
-   "executionRoleArn": "arn:aws:iam::012345678910:role/ecsTaskExecutionRole",
+   "executionRoleArn": "arn:aws:iam::207236964171:role/ecsTaskExecutionRole",
    "family": "node-task-definition",
    "memory": "512",
    "requiresCompatibilities": [ 
